@@ -1,0 +1,23 @@
+<!DOCTYPE html> 3 秒后这里会展示一张图片 (<a
+  href="https://thenounproject.com/icon/bike-3755205/"
+  target="_blank"
+  >bike.svg by Hamba Allah Pencari Rezeki</a
+>;
+<a href="https://thenounproject.com/icon/road-bike-3835457/" target="_blank"
+  >road-bike.svg by Steffen Frys</a
+>):
+
+<script>
+  navigator.serviceWorker
+    .register('sw-v2.js')
+    .then((reg) => console.log('SW registered!', reg))
+    .catch((err) => console.log('Boo!', err));
+
+  setTimeout(() => {
+    const img = new Image();
+    img.width = 300;
+    img.src = '/imgs/bike.svg';
+    img.style.display = 'block';
+    document.body.appendChild(img);
+  }, 3000);
+</script>
